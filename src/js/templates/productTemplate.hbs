@@ -1,0 +1,21 @@
+{{#each sellers}} 
+
+{{#each products}}
+<div class="col-lg-3 col-md-6 mb-4">
+    <div class="card">
+        <img class="card-img-top p-2" src="{{cover_image}}" alt="">
+        <div class="card-body">
+            <h5 class="card-title" id="title">{{name}}</h5>
+            <ul class="list-unstyled pl-3">
+                <li>Artist: {{artist}}</li>
+                <li>Released: {{released}}</li>
+                <li>Ganre: {{ganre}}</li>
+                <li>Price: {{price}}</li>
+                <li>Seller: {{../this.addr}}</li>
+            </ul>
+            <a href="#" class="btn btn-primary" onclick="App.buyProduct({{product}}, {{seller}})">Buy</a>
+        </div>
+    </div>
+</div>
+{{/each}}
+ {{/each}}
