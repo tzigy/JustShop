@@ -1,11 +1,11 @@
-import "../stylesheets/app.css";
-import "../stylesheets/heroic-features.css";
+import "../styles/app.css";
+import "../styles/heroic-features.css";
 import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap";
 import $ from 'jquery';
-import ShopService from './services/shop_service.js';
-import SellerService from './services/seller_service.js';
-import ProductTemplate from './templates/productTemplate.hbs';
+//import ShopService from './services/shop_service.js';
+//import SellerService from './services/seller_service.js';
+//import ProductTemplate from './templates/productTemplate.hbs';
 
 // Import libraries we need.
 import { default as Web3} from 'web3';
