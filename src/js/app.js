@@ -3,9 +3,9 @@ import "../styles/heroic-features.css";
 import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap";
 import $ from 'jquery';
-//import ShopService from './services/shop_service.js';
-//import SellerService from './services/seller_service.js';
-//import ProductTemplate from './templates/productTemplate.hbs';
+import ShopService from './services/shop_service.js';
+import SellerService from './services/seller_service.js';
+import ProductTemplate from './templates/productTemplate.hbs';
 
 // Import libraries we need.
 import { default as Web3} from 'web3';
@@ -45,8 +45,31 @@ window.App = {
         account = accounts[0];     
       });
     },
-
+	showShopPage: function() {
+      var self = this;            
     
+        //this.setStatus("Initiating transaction... (please wait)");
+        
+        var shop ={};
+        shop.sellers = [];
+        ShopService.getAllSellersIds(Shop.at("0xf08df3efdd854fede77ed3b2e515090eee765154"))
+          .then((sellerList) => {
+              console.log(sellerList);
+              var s = sellerList.map(addr => SellerService.getSeller(Seller.at(addr), addr));
+              return Promise.all(s);
+            })
+            .then(sellerProdList => {
+                for (let index = 0; index < sellerProdList.length; index++) {
+                  shop.sellers.push(sellerProdList[index]);                  
+                }
+                App.insertTemplate(shop, ProductTemplate);
+            })
+    },
+    insertTemplate: function(objectToInsert, template){
+     var cont = document.getElementById("main");
+     cont.innerHTML = template(objectToInsert);
+    
+  },
   };
   
   window.addEventListener('load', function() {

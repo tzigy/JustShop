@@ -14,9 +14,54 @@
   </head>
 
   <body>
-	<div id="main">
 	
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">Just Shop</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#" onclick="App.showShopPage()">Shop
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" onclick="App.showSellersPage()">Sellers</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" onclick="App.useHand()">Add Product</a>
+            </li>            
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container" id="page-content">
+
+      <!-- Jumbotron Header -->
+      <header class="my-5">
+        <h4 class="display-3" id="page-header">Albums</h4>        
+      </header>
+
+      <!-- Page Features -->
+      <div id="main" class="row">
+		
+      <!-- /.row -->
+    </div>
+    <!-- /.container -->
 	</div>
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; Your Website 2018</p>
+      </div>
+      <!-- /.container -->
+    </footer>    
 	<script src="./app.js"></script>
   </body>
 </html>
