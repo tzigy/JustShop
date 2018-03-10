@@ -12,8 +12,7 @@ var ShopService = {
           for (let index = 0; index < count; index++) {
             arr[index] = meta.getSellerByIndex(index);
           }
-          return Promise.all(arr);
-          //resolve(range(0, Number(sellersCount)))
+          return Promise.all(arr);         
         })
         .then((sellersIds) => {
           resolve(sellersIds);
@@ -23,7 +22,7 @@ var ShopService = {
           reject(error)
         })
     })
-  },
+  }
 };
 
 module.exports = ShopService;
