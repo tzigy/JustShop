@@ -1,21 +1,24 @@
-{{#each sellers}} 
-
-{{#each products}}
-<div class="col-lg-3 col-md-6 mb-4">
-    <div class="card">
-        <img class="card-img-top p-2" src="{{cover_image}}" alt="">
-        <div class="card-body">
-            <h5 class="card-title" id="title">{{name}}</h5>
-            <ul class="list-unstyled pl-3">
-                <li>Artist: {{artist}}</li>
-                <li>Released: {{released}}</li>
-                <li>Ganre: {{ganre}}</li>
-                <li>Price: {{price}}</li>
-                <li>Seller: {{../this.addr}}</li>
-            </ul>
-            <a href="#" class="btn btn-primary" onclick="App.buyProduct({{product}}, {{seller}})">Buy</a>
+<!-- Jumbotron Header -->
+<header class="my-5">
+    <h6 class="display-3" id="page-header">Albums</h6>
+</header>
+<div class="row">
+    {{#each sellers as |seller sellerId|}} {{#each products  as | product productId|}}
+    <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card">
+            <img class="card-img-top p-2" src="{{cover_image}}" alt="">
+            <div class="card-body">
+                <h5 class="card-title" id="title">{{name}}</h5>
+                <ul class="list-unstyled pl-3">
+                    <li><strong>Artist:</strong> {{artist}}</li>
+                    <li><strong>Released:</strong> {{released}}</li>
+                    <li><strong>Ganre:</strong> {{ganre}}</li>
+                    <li><strong>Price:</strong> {{price}} ETH</li>
+                    <li><strong>Seller:</strong> {{../this.name}}</li>                    
+                </ul>                
+                <button type="submit" class="btn btn-primary" onclick="App.buyProduct('{{seller.sellerContrAddr}}' , '{{product.ipfsAddr}}', {{price}})">Buy</button>        
+            </div>
         </div>
     </div>
+    {{/each}} {{/each}}
 </div>
-{{/each}}
- {{/each}}
