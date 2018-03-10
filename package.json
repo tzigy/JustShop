@@ -51,6 +51,7 @@
   },
   "dependencies": {
     "bs58": "^4.0.1",
+    "ipfs-api": "^18.1.2",
     "popper.js": "^1.12.9",
     "startbootstrap-heroic-features": "^4.0.0"
   }
