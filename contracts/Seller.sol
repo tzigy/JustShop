@@ -84,7 +84,7 @@ contract Seller {
     
     function deposit() public payable {}
     
-    function transfer(uint amount) public isOwner() {
+    function getMyMoney(uint amount) public isOwner() {
         assert(amount <= this.balance);
         owner.transfer(amount);
     }

@@ -68,7 +68,7 @@ contract JustShop {
         _seller.transfer(amount);
     }
     
-    function transfer(uint amount) public isOwner() {
+    function takeMyMoney(uint amount) public isOwner() {
         assert(amount <= this.balance);
         owner.transfer(amount);
     }
