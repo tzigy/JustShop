@@ -5,9 +5,9 @@ contract Seller {
     
     address private owner;
     
-    string public name;
-    string public addr;
-    string public telephone;
+    bytes32 public name;
+    bytes32 public addr;
+    bytes32 public phone;
     
     modifier isOwner {
         require(owner == msg.sender);
@@ -23,11 +23,11 @@ contract Seller {
     ProductStruct[] public products;
     mapping(bytes32 => bool) productsAvailable;
     
-    function Seller(string _name, string _addr, string _telephone) public payable {
+    function Seller(bytes32 _name, bytes32 _addr, bytes32 _phone) public payable {
         owner = msg.sender;
         name = _name;
         addr = _addr;
-        telephone = _telephone;
+        phone = _phone;
         //addTestProd();
     }
     
@@ -35,6 +35,10 @@ contract Seller {
         
         addProduct(0x2A60DBBFA69C4047DC632D89A496FFB012639109D3B58B82413BBB761F6A9249, 0.1 ether, 20);
         addProduct(0x384C1F0D972635210CBDC822B070AB637645DAA80971D2B2CBCBE3F7BF00FD9E, 0.2 ether, 30);
+    }
+    
+    function getContact() view public returns(bytes32, bytes32, bytes32){
+        return (name, addr, phone);
     }
     
     function addProduct(bytes32 _ipfsAddr, uint _price, uint _quantity) public isOwner() returns (bool) {
@@ -85,7 +89,7 @@ contract Seller {
     function deposit() public payable {}
     
     function getMyMoney(uint amount) public isOwner() {
-        assert(amount <= this.balance);
+        require(amount <= this.balance);
         owner.transfer(amount);
     }
     

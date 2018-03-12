@@ -9,6 +9,8 @@ contract JustShop {
     address[] private wannaBeSellers;
     uint private commision = 30;
     
+    event ProductPurchased(address _buyer, address _seller, bytes32 _product, uint _price); 
+    
     modifier isOwner() {
         require(owner == msg.sender);
         _;
@@ -59,17 +61,20 @@ contract JustShop {
     }
     
     function getBalance() view public isOwner() returns(uint) {
-        return this.balance;
+        address contractAddr = this;
+        return contractAddr.balance;
     }
     
-    function buyProduct(address _seller) public payable {
-        assert(sellersAvailable[_seller] == true);
-        uint amount = msg.value * ((100 - commision) / 100);
+    function buyProduct(address _buyer, address _seller, bytes32 _productId) public payable {
+        require(sellersAvailable[_seller] == true);
+        uint amount = (msg.value * (100 - commision)) / 100;
         _seller.transfer(amount);
+        ProductPurchased(_buyer, _seller, _productId, msg.value); 
     }
     
     function takeMyMoney(uint amount) public isOwner() {
-        assert(amount <= this.balance);
+        address contractAddr = this;
+        require(amount <= contractAddr.balance);
         owner.transfer(amount);
     }
     
