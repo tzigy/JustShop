@@ -72,7 +72,7 @@ contract JustShop {
         ProductPurchased(_buyer, _seller, _productId, msg.value); 
     }
     
-    function takeMyMoney(uint amount) public isOwner() {
+    function getMyMoney(uint amount) public isOwner() {
         address contractAddr = this;
         require(amount <= contractAddr.balance);
         owner.transfer(amount);

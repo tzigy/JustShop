@@ -30,8 +30,10 @@ var ShopService = {
         shopInstance.then((instance) => {
           let weiToGive = window.web3.toWei(price, 'ether')
           // Buy it for real
-          return instance.buyProduct(
-            sellerAddr,            
+          return instance.buyProduct(            
+            accounts[0],
+            sellerAddr,
+            prodId,            
             {from: accounts[0], value:weiToGive, gas: 4476768} // TODO (SRJ): is gas needed?
           )
         })

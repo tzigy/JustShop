@@ -31,10 +31,18 @@ contract Seller {
         //addTestProd();
     }
     
-    function addTestProd() public {
-        
+    function addTestProd1() public {
         addProduct(0x2A60DBBFA69C4047DC632D89A496FFB012639109D3B58B82413BBB761F6A9249, 0.1 ether, 20);
         addProduct(0x384C1F0D972635210CBDC822B070AB637645DAA80971D2B2CBCBE3F7BF00FD9E, 0.2 ether, 30);
+    }
+    
+    function addTestProd2() public {
+        addProduct(0x82EA491AD44C34AA3FEF028303030DF8F3180C6333BAE2FE189885410C08FCED, 0.15 ether, 10);
+        addProduct(0x629EDA13AE31C8E62384FC2C22D1C3775CC0CE8521E69B253390BB0AC78E3A9F, 0.22 ether, 50);
+    }
+    
+    function addTestProd3() public {
+        addProduct(0x8D2B760A314D105228C93A8351C821B192D32E183673641B000D26392EEBEB56, 0.31 ether, 22);
     }
     
     function getContact() view public returns(bytes32, bytes32, bytes32){

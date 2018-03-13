@@ -1,0 +1,31 @@
+<!-- Jumbotron Header -->
+<header class="my-5">
+    <h3 id="page-header">Sellers</h3>
+</header>
+
+    {{#each sellers}}
+    <div class="row"></div>
+    <div class="col-lg-3 col-md-6 mb-4">
+    <div class="card" style="width: 32rem">
+        <div class="card-body">
+            <h5 class="card-title">{{name}}</h5>
+            <ul class="list-unstyled pl-3">
+                <li>
+                    <strong>Address:</strong> {{addr}}
+                </li>
+                <li>
+                    <strong>Phone:</strong> {{phone}}
+                </li>
+                <li>
+                    <strong>Contract:</strong> {{sellerContrAddr}}
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+</div>
+{{/each}}
+
+<br>
+<br>
+<br>
